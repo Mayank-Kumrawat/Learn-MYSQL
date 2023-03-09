@@ -1,0 +1,99 @@
+
+MYSQL
+date 09/03/2023
+
+
+Enter password: *******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database employee ;
+Query OK, 1 row affected (0.16 sec)
+
+mysql> create table Employee_Database ;
+ERROR 1046 (3D000): No database selected
+mysql> use employee ;
+Database changed
+
+mysql> create table Employee_Info (employee_id integer primary key , employe_name text not null,department text not null);
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> insert into Employee_Info values (201, 'Mayank' , 'Information Technology');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Employee_Info values (202, 'Akshat' , 'Accounting');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into Employee_Info values (203, 'Parag' , 'Marketing');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Employee_Info values (204, 'Ketan' , 'Management');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select *from  Employee_Info ;
++-------------+--------------+------------------------+
+| employee_id | employe_name | department             |
++-------------+--------------+------------------------+
+|         201 | Mayank       | Information Technology |
+|         202 | Akshat       | Accounting             |
+|         203 | Parag        | Marketing              |
+|         204 | Ketan        | Management             |
++-------------+--------------+------------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> insert into Employee_Info values(205,'Harshit','Electrical');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select *from Employee_Info ;
++-------------+--------------+------------------------+
+| employee_id | employe_name | department             |
++-------------+--------------+------------------------+
+|         201 | Mayank       | Information Technology |
+|         202 | Akshat       | Accounting             |
+|         203 | Parag        | Marketing              |
+|         204 | Ketan        | Management             |
+|         205 | Harshit      | Electrical             |
++-------------+--------------+------------------------+
+5 rows in set (0.00 sec)
+
+mysql> update  Employee_Info  set department = 'Computer Science' where employee_id = 203 ;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from Employee_Info ;
++-------------+--------------+------------------------+
+| employee_id | employe_name | department             |
++-------------+--------------+------------------------+
+|         201 | Mayank       | Information Technology |
+|         202 | Akshat       | Accounting             |
+|         203 | Parag        | Computer Science       |
+|         204 | Ketan        | Management             |
+|         205 | Harshit      | Electrical             |
++-------------+--------------+------------------------+
+5 rows in set (0.00 sec)
+
+mysql> delete from Employee_Info Where  employee_id = 205 ;
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from Employee_Info ;
++-------------+--------------+------------------------+
+| employee_id | employe_name | department             |
++-------------+--------------+------------------------+
+|         201 | Mayank       | Information Technology |
+|         202 | Akshat       | Accounting             |
+|         203 | Parag        | Computer Science       |
+|         204 | Ketan        | Management             |
++-------------+--------------+------------------------+
+4 rows in set (0.00 sec)
+
+mysql>
